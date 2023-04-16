@@ -1,3 +1,5 @@
+# Views file to handle all extra data
+
 from django.shortcuts import render, redirect
 from .models import Member, VillageData
 from util.Parser import request_data_to_villager_data
