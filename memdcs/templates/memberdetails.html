@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <script src="{% static 'js/lib/jquery.js' %}"></script>
+    <script src="{% static 'js/lib/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/lib/bootstrap.js' %}"></script>
+    <script src="{% static 'js/lib/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/all-apps.js' %}"></script>
+    <link  rel="stylesheet" href="{% static 'css/lib/bootstrap.css' %}" >
+    <link  rel="stylesheet" href="{% static 'css/navbar-style.css' %}" >
+    <link  rel="stylesheet" href="{% static 'css/all-apps.css' %}" >
+    <link rel="icon" href="{% static 'images/applicationIcon.png' %}">
+    <meta charset="UTF-8">
+    <title>Login | Village wise Survey 2023</title>
+</head>
+<body>
+    {% include 'registration/navbar.html' %}
+    
+    <div>
+        <table style = "position: absolute;
+                        top: 20vh;
+                        left: 10vw;
+                        width: 10vw;">
+            <tr>
+                <form method="POST">
+                    <td>Enter Village Code</td>
+                    <td><input type="text" name="village_code"></td>
+                    <td></td>
+                    <td style="padding:2vw;" colspan="2">
+                        <button type="submit" class="btn btn-primary">Village Information</button>
+                    </td>
+                    {% csrf_token %}
+                </form>
+            </tr>
+            {% if village_details %}
+            <tr>
+                <td>Village Code</td><td><input type="text" value="{{village_details.village_code}}" disabled></td><td>Village Name</td><td><input type="text" value="{{village_details.village_name}}" disabled></td>
+            </tr>
+            <tr>
+                <td>Panchayat Code</td><td><input type="text" value="{{village_details.panchayat_code}}" disabled></td><td>Panchayat Name</td><td><input type="text" value="{{village_details.panchayat_name}}" disabled></td>
+            </tr>
+            <tr>
+                <td>Block Code</td><td><input type="text" value="{{village_details.block_code}}" disabled></td><td>BLock Name</td><td><input type="text" value="{{village_details.block_name}}" disabled></td>
+            </tr>
+            <tr>
+                <td>District Code</td><td><input type="text" value="{{village_details.district_code}}" disabled></td><td>District Name</td><td><input type="text" value="{{village_details.district_name}}" disabled></td>
+            </tr>
+            <tr>
+                <td>State Name</td><td><input type="text" value="{{village_details.state_name}}" disabled></td><td></td><td><button class="btn btn-primary" onclick="show_villager_data_form()">Add new Member</button></button></td>
+            </tr>            
+            {% endif %}
+        </table>
+        <form id="villager_data_form" method="POST"><table>
+            <tr>
+                <td>Name</td><td><input type="text" name="name"></td><td>Father's Name</td><td><input type="text" name="father_name"></td>
+            </tr>
+            <tr>
+                <td>Ward Number</td><td><input type="text" name="ward_num"></td><td>Contact Number</td><td><input type="text" name="contact_num"></td>
+            </tr>
+            <tr>
+                <td>Number of Cows</td><td><input type="text" name="cows"></td><td>Number of Buffaloes</td><td><input name="buffaloes" type="text"></td>
+            </tr>
+            <tr>
+                <td>Total Milk Produced</td><td><input type="text" name="total_milk_produced" required></td><td>Milk Remaining after consumption</td><td><input type="text" name="balance_milk_remaining" required></td>
+            </tr>
+            <tr>
+                <td>Selling to Sudha</td><td><input type="checkbox" name="selling_to_sudha"></td><td>Selling to other, whom</td><td><input type="text" name="selling_to_other_whom" required></td>
+            </tr>
+            <tr style="visibility: hidden;">
+                <td><input type="text" value="{{village_details.village_code}}" name="village_code"></td>
+            </tr>
+            <tr>
+                <td>Selling to other, rate</td><td><input type="text" name="selling_to_other_rate" required></td><td></td><td><button type="submit" class="btn btn-primary">Submit</button></td>
+            </tr>
+            {% csrf_token %}
+        </table></form>
+    </div>
+    {% if villager_data %}
+    <div id="villager_data_popup">
+        <table id="villager_data_popup_table">
+            <tr><td></td><td style="font-size: 20px; color: white;">Saved member Data</td></tr>
+            <tr><td>Name</td><td>{{villager_data.name}}</td><td>Village Name</td><td>{{village_data.village_name}}</td></tr>
+            <tr><td>Balance Milk Remaining</td><td>{{villager_data.balance_milk_remaining}}</td><td>Selling to Sudha</td><td>{{villager_data.selling_to_sudha}}</td></tr>
+            <tr><td>Created By</td><td>{{user_data.username}}</td><td>Last Updated</td><td>{{current_time}}</td></tr>
+            <tr><td><button class="btn btn-default" onclick="window.location.href='/application/MemberDCS'">Add more members</button></td><td><button style="width:70%" class="btn btn-default" onclick="window.location.href='/logout'">Exit</button></td></tr>
+        </table>
+    </div>
+    {% endif %}
+</body>
+<style>
+    #villager_data_popup_table{
+        border: 5vh solid grey;
+    }
+    #villager_data_popup{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 255, 0.1);
+        z-index: 2;
+    }
+    #villager_data_popup table{
+        padding: 10vw;
+        margin: 10vw;
+        background-color: grey;
+    }
+    #villager_data_form{
+        position: absolute;
+        top: 70vh;
+        left: 10vw;
+        display: none;
+    }
+    td{
+        min-width: 20vw;
+    }
+</style>
+<script>
+    var show_villager_data_form = function () {
+        $("#villager_data_form").css("display", "block");
+    }
+</script>
+</html>

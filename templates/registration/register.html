@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <script src="{% static 'js/lib/jquery.js' %}"></script>
+    <script src="{% static 'js/lib/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/lib/bootstrap.js' %}"></script>
+    <script src="{% static 'js/lib/jquery-ui.js' %}"></script>
+    <link  rel="stylesheet" href="{% static 'css/lib/bootstrap.css' %}" >
+    <link  rel="stylesheet" href="{% static 'css/navbar-style.css' %}" >
+    <link rel="icon" href="{% static 'images/applicationIcon.png' %}">
+    <meta charset="UTF-8">
+    <title>Register | Village wise Survey 2023</title>
+</head>
+<body>
+    {% include './navbar.html' %}
+    <form class="centralized-form" method="post">
+        <div style="font-size:2vw;"><b>Register</b></div>
+        <table>
+            <tr>
+                <td>Username</td><td><input type="text" name="username" value="{{form.username}}"></td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td><td><input type="text" name="mobilenum" value="{{form.mobilenum}}"></td>
+            </tr>
+            <tr>
+                <td>Union/Unit</td><td>
+                    <select value="{{form.union}}" name="union" style="width:100%">
+                        <option></option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                        <option>F</option>
+                        <option>G</option>
+                        <option>H</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Designation</td><td><input type="text" name="designation" value="{{form.designation}}"></td>
+            </tr>
+            <tr>
+                <td>Email</td><td><input type="email" name="email" value="{{form.email}}"></td>
+            </tr>
+            <tr>
+                <td>Password</td><td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td><td><input type="password" name="confirmPassword"></td>
+            </tr>
+            <tr>
+                <td style="padding:2vw;" colspan="2">
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </td>
+            </tr>
+        </table>
+        {% csrf_token %}
+    </form>
+</body>
+</html>

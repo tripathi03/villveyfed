@@ -1,0 +1,51 @@
+<div id="fakebookNavbar">
+    <label class="fakebook-header-label">Village wise Survey 2023</label>
+
+    {% if request.user.is_authenticated %}
+    <button style="float:right;margin:2vw;"
+            class="btn btn-default navbar-action-button"
+            onclick="window.location.href='/logout'">Logout</button>
+    <label style="float:right;
+                 color:white;
+                 margin-top:5vh;">{{request.user.username}}</label>
+    {% elif 'login' in request.path  %}
+    <button style="float:right;margin:2vw;"
+         class="btn btn-default navbar-action-button"
+         onclick="window.location.href='/register'">Register</button>
+    {% elif 'register' in request.path %}
+    <button style="float:right;margin:2vw;"
+            class="btn btn-default navbar-action-button"
+            onclick="window.location.href='/login/'">Login</button>
+    {% endif %}
+
+    {% if not request.user.is_authenticated and "POST" in request.method and 'login' in request.path%}
+    <label style="position:absolute;
+                  top:20vh;
+                  left:5vw;
+                  font-size:12px;
+                  color:red;
+                  min-height:5vh;
+                  max-width:30vw;
+                  overflow-wrap:break-word;">Incorrect username/password. Please note that username
+        and password are both case-sensitive</label>
+    {% elif 'register' in request.path %}
+    <label style="position:absolute;
+                  top:20vh;
+                  left:5vw;
+                  font-size:12px;
+                  color:{{color}};
+                  min-height:5vh;
+                  max-width:30vw;
+                  overflow-wrap:break-word;">{{message}}</label>
+    {% else %}
+    <label style="position:absolute;
+                  top:15vh;
+                  left:0vw;
+                  font-size:12px;
+                  color:white;
+                  min-height:5vh;
+                  width:100vw;
+                  background-color:{{color}};
+                  overflow-wrap:break-word;" id="navbar-message-bar">{{message}}</label>
+    {% endif %}
+</div>

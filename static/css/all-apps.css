@@ -1,0 +1,65 @@
+#all-apps-container{
+    position:absolute;
+    top:20vh;
+    left:5vw;
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+.app-item img{
+    width:5vw;
+}
+#all-apps-container button{
+    border:none;
+    border-radius:1vw;
+}
+#add-application-modal{
+    position:absolute;
+    top:0vh;
+    left:0vw;
+    width:100vw;
+    height:100vh;
+    background-color:rgba(0,0,255,0.1);
+    z-index:100;
+    display:none;
+}
+.modal-view-box{
+    position:absolute;
+    top:30vh;
+    left:30vw;
+    width:40vw;
+    height:60vh;
+    padding-left:5vw;
+    padding-top:5vh;
+    color:white;
+    background-color:rgba(50,50,150,0.9);
+    border:3px solid rgb(0,0,150);
+}
+.modal-view-box input{
+    margin:2vh;
+}
+.app-item-label{
+    width:inherit;
+    text-align:center;
+}
+.app-item{
+    margin:3vw;
+    display:flex;
+    flex-direction:column;
+}
+.menu{
+    position:absolute;
+    padding: 0px;
+    width: 10vw;
+    background-color:whitesmoke;
+    list-style-type:none;
+}
+#application-context-menu button{
+    border: 0px;
+    width:100%;
+    height:100%;
+}
+#application-context-menu{
+    display: none;
+    border: 1px solid darkgrey;
+}

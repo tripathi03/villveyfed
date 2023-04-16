@@ -1,0 +1,43 @@
+#fakebookNavbar{
+    position:absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    min-height:10vh;
+    height:wrap-content;
+    background-color:blue;
+}
+.fakebook-header-label{
+    font-size:3vw;
+    padding:1vw;
+    color:white;
+}
+* {
+    font-family:Georgia;
+}
+.centralized-form{
+    position:absolute;
+    top:30%;
+    left:5%;
+}
+.centralized-form td,button{
+    padding:1vh;
+}
+.welcome-message-label{
+    float:right;
+    padding:2vw;
+}
+.navbar-action-button{
+    width:8vw;
+}
+.no-decoration{
+    text-decoration: none;
+    color: white;
+}
+body{
+    /* background-image: url("/static/images/applicationIcon.png");
+    background-repeat: no-repeat;
+    background-size: 50vh;
+    background-position: center;
+    padding: 50vh; */
+}
