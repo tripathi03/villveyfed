@@ -56,7 +56,7 @@
                 <td>Name</td><td><input type="text" name="name"></td><td>Father's Name</td><td><input type="text" name="father_name"></td>
             </tr>
             <tr>
-                <td>Ward Number</td><td><input type="text" name="ward_num"></td><td>Contact Number</td><td><input type="text" name="contact_num"></td>
+                <td>Ward Number</td><td><input type="text" name="ward_num"></td><td>Contact Number</td><td><input type="text" name="contact_num" maxlength="10"></td>
             </tr>
             <tr>
                 <td>Number of Cows</td><td><input type="text" name="cows"></td><td>Number of Buffaloes</td><td><input name="buffaloes" type="text"></td>
@@ -83,7 +83,7 @@
             <tr><td>Name</td><td>{{villager_data.name}}</td><td>Village Name</td><td>{{village_data.village_name}}</td></tr>
             <tr><td>Balance Milk Remaining</td><td>{{villager_data.balance_milk_remaining}}</td><td>Selling to Sudha</td><td>{{villager_data.selling_to_sudha}}</td></tr>
             <tr><td>Created By</td><td>{{user_data.username}}</td><td>Last Updated</td><td>{{current_time}}</td></tr>
-            <tr><td><button class="btn btn-default" onclick="window.location.href='/application/MemberDCS'">Add more members</button></td><td><button style="width:70%" class="btn btn-default" onclick="window.location.href='/logout'">Exit</button></td></tr>
+            <tr><td><button style="width:70%" class="btn btn-default" onclick="window.location.href='/logout'">Edit</button></td><td><button class="btn btn-warning" onclick="window.location.href='/application/MemberDCS'">Add more members</button></td><td><button style="width:70%" class="btn btn-default" onclick="window.location.href='/logout'">Exit</button></td></tr>
         </table>
     </div>
     {% endif %}

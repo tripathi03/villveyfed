@@ -9,7 +9,7 @@ from util.UserValidator import MSG_USERDATA_VALID
 
 REGISTER_PAGE = "registration/register.html"
 LOGIN_PAGE = "registration/login.html"
-logger = Logger("fakebook.log")
+logger = Logger("villveyfed.log")
 
 
 def show_register_page(request):

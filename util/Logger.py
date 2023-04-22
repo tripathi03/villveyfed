@@ -5,7 +5,7 @@ class Logger:
 
     log_file_name = ""
 
-    def __init__(self, file_name="fakebook.log"):
+    def __init__(self, file_name="villveyfed.log"):
         self.log_file_name = file_name
 
     def log(self, level="INFO", message=""):
