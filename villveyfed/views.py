@@ -3,6 +3,7 @@ import logging
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from util.Parser import request_data_to_user, request_data_to_addtional_data
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView
 from .forms import RegistrationForm
 from util.Logger import Logger
 from util.UserValidator import MSG_USERDATA_VALID
@@ -39,3 +40,13 @@ def show_register_page(request):
         "message": "Only GET and POST methods allowed. Are you debugging?",
         "color": "orange"
     })
+
+
+
+class MyPasswordResetView(PasswordResetView):
+    template_name = 'my_password_reset.html'
+    email_template_name = 'my_password_reset_email.html'
+    subject_template_name = 'my_password_reset_subject.txt'
+
+class MyPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'my_password_reset_done.html'

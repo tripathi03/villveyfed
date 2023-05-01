@@ -7,6 +7,7 @@ from django.urls import path
 from memdcs import urls
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path("login/", django.contrib.auth.views.LoginView.as_view()),
     path("logout/", django.contrib.auth.views.LogoutView.as_view()),
     path("register/", show_register_page),
