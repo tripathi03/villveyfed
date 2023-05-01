@@ -1,0 +1,16 @@
+altgraph==0.17.3
+asgiref==3.6.0
+Django==4.2
+greenlet==2.0.2
+mysql-connector==2.2.9
+mysql-connector-python==8.0.32
+mysqlclient==2.1.1
+pefile==2023.2.7
+pyinstaller==5.10.1
+pyinstaller-hooks-contrib==2023.2
+pyodbc==4.0.35
+pywin32-ctypes==0.2.0
+SQLAlchemy==2.0.9
+sqlparse==0.4.3
+typing_extensions==4.5.0
+tzdata==2023.3
